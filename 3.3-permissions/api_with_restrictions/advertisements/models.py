@@ -1,17 +1,13 @@
 from django.conf import settings
 from django.db import models
 
-
 class AdvertisementStatusChoices(models.TextChoices):
     """Статусы объявления."""
-
     OPEN = "OPEN", "Открыто"
     CLOSED = "CLOSED", "Закрыто"
 
-
 class Advertisement(models.Model):
     """Объявление."""
-
     title = models.TextField()
     description = models.TextField(default='')
     status = models.TextField(
@@ -22,9 +18,5 @@ class Advertisement(models.Model):
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
     )
-    created_at = models.DateTimeField(
-        auto_now_add=True
-    )
-    updated_at = models.DateTimeField(
-        auto_now=True
-    )
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
